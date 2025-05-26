@@ -1,7 +1,10 @@
 import tkinter as tk
 from tkinter import PhotoImage
 from PIL import Image, ImageTk
-import time
+import pygetwindow as gw # type: ignore
+active_window = gw.getActiveWindow()
+print(active_window.title)
+
 
 root = tk.Tk()
 window_width = 300
@@ -16,7 +19,7 @@ root.overrideredirect(True)
 
 gameText = tk.Label(
     root,
-    text="youve been on xxxxxxxxx for 45 Minutes, you might wanna take a break",
+    text=f"youve been on {active_window.title} for 45 Minutes, you might wanna take a break",
     font = ("Roboto",12),
     wraplength=200,
     justify="left"
