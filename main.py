@@ -50,7 +50,7 @@ def NotifSlide():
 def NotifClose():
     global x
     x += 1 
-    if x >= screen_width - window_width:
+    if x <= screen_width:
         root.geometry(f"{window_width}x{window_height}+{x}+{y}")
         root.after(2, NotifClose)
     else:
