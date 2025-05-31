@@ -7,6 +7,7 @@ import time
 
 active_window = gw.getActiveWindow()
 print(active_window.title)
+length = 0
 def create_popup():
     root = tk.Tk()
     window_width = 300
@@ -21,7 +22,7 @@ def create_popup():
 
     gameText = tk.Label(
         root,
-        text=f"youve been on {active_window.title} for 45 Minutes, you might wanna take a break",
+        text=f"youve been on {active_window.title} for {length} Minutes, you might wanna take a break",
         font = ("Roboto",12),
         wraplength=200,
         justify="left"
@@ -58,6 +59,7 @@ def create_popup():
 def schedule_popup():
     create_popup()
     root_scheduler.after(15 * 60 * 1000, schedule_popup)  
+    length += 15
 
 root_scheduler = tk.Tk()
 root_scheduler.withdraw()  
